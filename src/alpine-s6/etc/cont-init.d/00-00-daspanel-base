@@ -5,27 +5,6 @@ echo "[DASPANEL] INFO: Starting with UID $USER_ID"
 addgroup -g $USER_ID daspanel
 adduser -s /bin/false -D -h /home/daspanel -u $USER_ID -G daspanel daspanel
 
-#USER_ID=${DASPANEL_SYS_USERID:-1000}
-#getent group $USER_ID > /dev/null 2>&1
-#RES=$?
-#if [ $RES -eq 0 ]; then
-#    echo "[DASPANEL] INFO: Starting with existing GID $USER_ID"
-#    groupmod -n daspanel $USER_ID
-#else
-#    echo "[DASPANEL] INFO: Adding GID $USER_ID"
-#    addgroup -g $USER_ID daspanel
-#fi
-#GROUPNAME="$(getent group $USER_ID | cut -d: -f1)"
-#getent passwd $USER_ID > /dev/null 2>&1
-#RES=$?
-#if [ $RES -eq 0 ]; then
-#    echo "[DASPANEL] INFO: Starting with existing UID $USER_ID"
-#    usermod -l daspanel $USER_ID
-#else
-#    echo "[DASPANEL] INFO: Adding UID $USER_ID"
-#    adduser -s /bin/false -D -h /home/daspanel -u $USER_ID -G $GROUPNAME daspanel
-#fi
-
 # Installation UUID must be informed
 if [ -z "$DASPANEL_SYS_UUID" ]; then
     echo "***"
